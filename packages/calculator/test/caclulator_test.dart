@@ -1,6 +1,5 @@
+import 'package:calculator/calculator.dart';
 import 'package:test/test.dart';
-
-import '../src/calculator.dart';
 
 void main() {
   late Calculator calculator;
