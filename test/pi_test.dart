@@ -36,6 +36,7 @@ void main() {
       expect(find.text('The latest known value of pi is 3.1'), findsOneWidget);
       await tester.pumpAndSettle(const Duration(milliseconds: 400));
       expect(find.text('The latest known value of pi is 3.14'), findsOneWidget);
+      verify(calculator.pi()).called(1);
     });
   });
 }

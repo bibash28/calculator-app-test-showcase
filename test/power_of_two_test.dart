@@ -32,6 +32,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('is 100.0'), findsOneWidget);
+      verify(calculator.powerOfTwo(5)).called(1);
     });
   });
 }
