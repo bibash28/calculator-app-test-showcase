@@ -68,8 +68,9 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
         AnimatedContainer(
           duration: const Duration(seconds: 1),
           curve: Curves.bounceIn,
-          color: _operationResult == null ? Colors.transparent : Colors.lightGreen,
-          onEnd: (){
+          color:
+              _operationResult == null ? Colors.transparent : Colors.lightGreen,
+          onEnd: () {
             setState(() {
               _resultAfterAnimation = _operationResult;
             });
@@ -106,16 +107,16 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
     double result;
     switch (widget.operation) {
       case Operation.add:
-        result = widget.calculator.add(top, bottom);
+        result = widget.calculator.add(top, bottom)!;
         break;
       case Operation.subtract:
-        result = widget.calculator.subtract(top, bottom);
+        result = widget.calculator.subtract(top, bottom)!;
         break;
       case Operation.multiply:
-        result = widget.calculator.multiply(top, bottom);
+        result = widget.calculator.multiply(top, bottom)!;
         break;
       case Operation.divide:
-        result = widget.calculator.divide(top, bottom);
+        result = widget.calculator.divide(top, bottom)!;
         break;
     }
     return result;
