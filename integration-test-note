@@ -1,0 +1,2 @@
+Run the following code to run integration test:
+flutter driver --target=test_driver/calculator_app_test.dart --driver=test_driver/calculator_app_test.dart
