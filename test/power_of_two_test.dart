@@ -1,5 +1,4 @@
 import 'package:calculator/calculator.dart';
-import 'package:calculator_app_testing/pi.dart';
 import 'package:calculator_app_testing/power_of_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

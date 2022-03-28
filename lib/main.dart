@@ -17,7 +17,7 @@ class CalculatorApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Calculators'),
+          title: const Text('Calculator'),
         ),
         body: SingleChildScrollView(
           child: Padding(

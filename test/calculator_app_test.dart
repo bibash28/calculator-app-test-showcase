@@ -1,4 +1,3 @@
-import 'package:calculator/calculator.dart';
 import 'package:calculator_app_testing/main.dart';
 import 'package:calculator_app_testing/two_digit_operation.dart';
 import 'package:flutter/material.dart';
