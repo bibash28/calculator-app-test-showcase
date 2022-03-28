@@ -13,9 +13,9 @@ extension OperationX on Operation {
       case Operation.subtract:
         return 'minus';
       case Operation.multiply:
-        return 'multiplied by';
+        return 'multiplied_by';
       case Operation.divide:
-        return 'divided by';
+        return 'divided_by';
     }
   }
 }
