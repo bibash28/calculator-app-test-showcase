@@ -1,3 +1,4 @@
+import 'package:calculator/calculator.dart';
 import 'package:calculator_app_testing/main.dart';
 import 'package:calculator_app_testing/two_digit_operation.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,15 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Calculator App', () {
+    testWidgets('matches golden file', (tester) async {
+      await tester.pumpWidget(const CalculatorApp());
+      //run - flutter test --update-goldens to generate golden files
+      await expectLater(
+        find.byType(CalculatorApp),
+        matchesGoldenFile('goldens/calculator_app.png'),
+      );
+    });
+
     testWidgets('renders four widgets of type TwoDigitalOperation',
         (WidgetTester tester) async {
       await tester.pumpWidget(const CalculatorApp());
