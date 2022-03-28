@@ -10,9 +10,14 @@ class Calculator {
     return a / b;
   }
 
-  Future<double?> powerOfTwo(double a) {
+  Future<double>? powerOfTwo(double a) {
     return Future.delayed(const Duration(seconds: 1), () => a * a);
   }
 
-  Stream<double?> pi() => Stream.fromIterable([3, 3.1, 3.14, 3.141, 3.1415]);
+  final List<double> _piValues = [3, 3.1, 3.14, 3.141, 3.1415];
+
+  //Stream<double>? pi() => Stream.fromIterable(_piValues);
+
+  Stream<double>? pi() =>
+      Stream.periodic(const Duration(seconds: 1), (count) => _piValues[count]);
 }
