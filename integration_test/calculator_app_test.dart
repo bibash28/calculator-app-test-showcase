@@ -8,11 +8,16 @@ void main() {
 
   group('Pi', () {
     testWidgets(
-      'the values of pi are 3.1, 3.14, 3.141 and 3.1415',
+      'the values of pi are 3.0, 3.1, 3.14, 3.141 and 3.1415',
       (tester) async {
         app.main();
         await tester.pumpAndSettle();
         expect(find.text('Calculating pi...'), findsOneWidget);
+        await tester.pumpAndSettle(const Duration(seconds: 1));
+        expect(
+          find.text('The latest known value of pi is 3.0'),
+          findsOneWidget,
+        );
         await tester.pumpAndSettle(const Duration(seconds: 1));
         expect(
           find.text('The latest known value of pi is 3.1'),

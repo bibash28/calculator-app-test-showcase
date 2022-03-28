@@ -1,2 +1,19 @@
 Run the following code to run integration test:
 flutter test integration_test/calculator_app_test.dart
+
+For web:
+1. Install chromedriver
+2. Run:
+chromedriver --port=4444
+3. Run:
+flutter drive \
+  --driver=test_driver/integration_test.dart \
+  --target=integration_test/calculator_app_test.dart \
+  -d web-server
+
+
+References
+https://docs.flutter.dev/cookbook/testing/integration/introduction
+https://www.swtestacademy.com/install-chrome-driver-on-mac/
+https://docs.flutter.dev/testing/integration-tests#running-in-a-browser
+https://stackoverflow.com/questions/60362018/macos-catalinav-10-15-3-error-chromedriver-cannot-be-opened-because-the-de
