@@ -1,7 +1,12 @@
-Run the following code to run integration test:
+- Run the following code to run integration test:
 flutter test integration_test/calculator_app_test.dart
 
-For web:
+- When integrationDriver is used
+flutter drive \
+  --driver=test_driver/integration_test.dart \
+  --target=integration_test/calculator_app_test.dart
+
+- For web:
 1. Install chromedriver
 2. Run:
 chromedriver --port=4444
@@ -12,7 +17,7 @@ flutter drive \
   -d web-server
 
 
-References
+- References
 https://docs.flutter.dev/cookbook/testing/integration/introduction
 https://www.swtestacademy.com/install-chrome-driver-on-mac/
 https://docs.flutter.dev/testing/integration-tests#running-in-a-browser
