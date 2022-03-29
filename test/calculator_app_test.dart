@@ -5,14 +5,18 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Calculator App', () {
-    testWidgets('matches golden file', (tester) async {
-      await tester.pumpWidget(const CalculatorApp());
-      //run - flutter test --update-goldens to generate golden files
-      await expectLater(
-        find.byType(CalculatorApp),
-        matchesGoldenFile('goldens/calculator_app.png'),
-      );
-    });
+    testWidgets(
+      'matches golden file',
+      (tester) async {
+        await tester.pumpWidget(const CalculatorApp());
+        //run - flutter test --update-goldens to generate golden files
+        await expectLater(
+          find.byType(CalculatorApp),
+          matchesGoldenFile('goldens/calculator_app.png'),
+        );
+      },
+      tags: 'no-ci', //ignoring test
+    );
 
     testWidgets('renders four widgets of type TwoDigitalOperation',
         (WidgetTester tester) async {
