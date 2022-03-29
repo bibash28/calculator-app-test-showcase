@@ -21,6 +21,7 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
   final TextEditingController _bottomTextController = TextEditingController();
 
   String? _operationResult;
+  String? _resultAfterAnimation;
 
   @override
   void initState() {
@@ -42,6 +43,7 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          key: Key('textField_top_${widget.operation.description}'),
           controller: _topTextController,
           keyboardType: TextInputType.number,
         ),
@@ -56,15 +58,27 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
             ),
             Expanded(
               child: TextFormField(
+                key: Key('textField_bottom_${widget.operation.description}'),
                 controller: _bottomTextController,
                 keyboardType: TextInputType.number,
               ),
             ),
           ],
         ),
-        Text(
-          'is ${_operationResult ?? '???'}',
-          style: Theme.of(context).textTheme.headline5,
+        AnimatedContainer(
+          duration: const Duration(seconds: 1),
+          curve: Curves.bounceIn,
+          color:
+              _operationResult == null ? Colors.transparent : Colors.lightGreen,
+          onEnd: () {
+            setState(() {
+              _resultAfterAnimation = _operationResult;
+            });
+          },
+          child: Text(
+            'is ${_resultAfterAnimation ?? '???'}',
+            style: Theme.of(context).textTheme.headline5,
+          ),
         ),
       ],
     );
@@ -93,16 +107,16 @@ class _TwoDigitOperationState extends State<TwoDigitOperation> {
     double result;
     switch (widget.operation) {
       case Operation.add:
-        result = widget.calculator.add(top, bottom);
+        result = widget.calculator.add(top, bottom)!;
         break;
       case Operation.subtract:
-        result = widget.calculator.subtract(top, bottom);
+        result = widget.calculator.subtract(top, bottom)!;
         break;
       case Operation.multiply:
-        result = widget.calculator.multiply(top, bottom);
+        result = widget.calculator.multiply(top, bottom)!;
         break;
       case Operation.divide:
-        result = widget.calculator.divide(top, bottom);
+        result = widget.calculator.divide(top, bottom)!;
         break;
     }
     return result;

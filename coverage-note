@@ -1,0 +1,12 @@
+The following code generates coverage folder:
+flutter test --coverage
+
+-----------------------------------------------------------
+The following code reads the lcov.info and generates html file:
+genhtml ./coverage/lcov.info -o coverage
+
+You may have to install Icov in your machine
+
+-----------------------------------------------------------
+The following code opens the html file int the browser:
+open coverage/index.html

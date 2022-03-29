@@ -1,5 +1,7 @@
 import 'package:calculator/calculator.dart';
 import 'package:calculator_app_testing/operation.dart';
+import 'package:calculator_app_testing/pi.dart';
+import 'package:calculator_app_testing/power_of_two.dart';
 import 'package:calculator_app_testing/two_digit_operation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,7 @@ class CalculatorApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Calculator'),
         ),
         body: SingleChildScrollView(
@@ -21,6 +24,10 @@ class CalculatorApp extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Column(
               children: [
+                PowerOfTwo(calculator: calculator),
+                const Divider(),
+                Pi(calculator: calculator),
+                const Divider(),
                 TwoDigitOperation(
                   calculator: calculator,
                   operation: Operation.add,
